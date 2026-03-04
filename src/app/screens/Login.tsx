@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { startRegistration, startAuthentication } from '@simplewebauthn/browser';
+import { API_BASE_URL } from '../config';
 
 const USER_ID = 'citizen123';
 const USER_NAME = 'citizen@secgov.in';
-const API = 'http://localhost:5000';
+const API = API_BASE_URL;
 
 type Phase = 'idle' | 'scanning' | 'verifying' | 'success' | 'error';
 

@@ -5,8 +5,9 @@ import { GlassCard } from '../components/GlassCard';
 import { StatusBadge } from '../components/StatusBadge';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { io } from 'socket.io-client';
+import { API_BASE_URL } from '../config';
 
-const socket = io('http://localhost:5000');
+const socket = io(API_BASE_URL);
 
 export function Dashboard() {
   const [metrics, setMetrics] = useState({
@@ -41,10 +42,10 @@ export function Dashboard() {
 
   useEffect(() => {
     // Initial fetch
-    fetch('http://localhost:5000/api/security/metrics').then(res => res.json()).then(setMetrics);
-    fetch('http://localhost:5000/api/security/threats').then(res => res.json()).then(setThreatData);
-    fetch('http://localhost:5000/api/security/risk').then(res => res.json()).then(setRiskData);
-    fetch('http://localhost:5000/api/security/events').then(res => res.json()).then(setRecentEvents);
+    fetch(`${API_BASE_URL}/api/security/metrics`).then(res => res.json()).then(setMetrics);
+    fetch(`${API_BASE_URL}/api/security/threats`).then(res => res.json()).then(setThreatData);
+    fetch(`${API_BASE_URL}/api/security/risk`).then(res => res.json()).then(setRiskData);
+    fetch(`${API_BASE_URL}/api/security/events`).then(res => res.json()).then(setRecentEvents);
 
     // Socket listeners
     socket.on('state_update', (state) => {

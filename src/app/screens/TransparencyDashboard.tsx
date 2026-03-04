@@ -5,8 +5,9 @@ import { StatusBadge } from '../components/StatusBadge';
 import { Toggle } from '../components/Toggle';
 import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+import { API_BASE_URL } from '../config';
 
-const socket = io('http://localhost:5000');
+const socket = io(API_BASE_URL);
 
 const FALLBACK_LOGS = [
   { id: 1, officer: 'Sarah Johnson', role: 'Tax Officer', department: 'Revenue Services', purpose: 'Tax Verification', dataAccessed: 'Income Records', timestamp: '2026-03-04 14:32:15', riskScore: 0.12, status: 'approved', duration: '2 minutes' },
@@ -27,7 +28,7 @@ export function TransparencyDashboard() {
   ]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/transparency/logs')
+    fetch(`${API_BASE_URL}/api/transparency/logs`)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
@@ -138,8 +139,8 @@ export function TransparencyDashboard() {
                   {/* Timeline Dot */}
                   <div className="relative flex-shrink-0">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${log.status === 'approved' ? 'bg-green-100' :
-                        log.status === 'denied' ? 'bg-red-100' :
-                          'bg-orange-100'
+                      log.status === 'denied' ? 'bg-red-100' :
+                        'bg-orange-100'
                       }`}>
                       {log.status === 'approved' ? (
                         <CheckCircle className="w-5 h-5 text-green-600" />
@@ -179,8 +180,8 @@ export function TransparencyDashboard() {
                       <div className="text-right">
                         <div className="text-xs text-gray-500 mb-1">{log.timestamp}</div>
                         <div className={`text-sm px-2 py-1 rounded ${log.riskScore < 0.3 ? 'bg-green-100 text-green-700' :
-                            log.riskScore < 0.6 ? 'bg-orange-100 text-orange-700' :
-                              'bg-red-100 text-red-700'
+                          log.riskScore < 0.6 ? 'bg-orange-100 text-orange-700' :
+                            'bg-red-100 text-red-700'
                           }`}>
                           Risk: {(log.riskScore * 100).toFixed(0)}%
                         </div>

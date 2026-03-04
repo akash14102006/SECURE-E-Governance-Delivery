@@ -5,8 +5,9 @@ import { GlassCard } from '../components/GlassCard';
 import { StatusBadge } from '../components/StatusBadge';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import { io } from 'socket.io-client';
+import { API_BASE_URL } from '../config';
 
-const socket = io('http://localhost:5000');
+const socket = io(API_BASE_URL);
 
 export function SecurityMonitoring() {
   const [attackData, setAttackData] = useState([
@@ -46,8 +47,8 @@ export function SecurityMonitoring() {
 
   useEffect(() => {
     // Initial fetch
-    fetch('http://localhost:5000/api/security/attackData').then(res => res.json()).then(setAttackData);
-    fetch('http://localhost:5000/api/security/trafficData').then(res => res.json()).then(setTrafficData);
+    fetch(`${API_BASE_URL}/api/security/attacks`).then(res => res.json()).then(setAttackData);
+    fetch(`${API_BASE_URL}/api/security/intrusions`).then(res => res.json()).then(setTrafficData); // Assuming intrusions maps to trafficData for now
     fetch('http://localhost:5000/api/security/securityScore').then(res => res.json()).then(setSecurityScore);
 
     // Socket listeners

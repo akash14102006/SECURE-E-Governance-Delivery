@@ -4,8 +4,9 @@ import { motion } from 'motion/react';
 import { GlassCard } from '../components/GlassCard';
 import { StatusBadge } from '../components/StatusBadge';
 import { io } from 'socket.io-client';
+import { API_BASE_URL } from '../config';
 
-const socket = io('http://localhost:5000');
+const socket = io(API_BASE_URL);
 
 const STATIC_DECISIONS = [
   {
@@ -72,7 +73,7 @@ export function PolicyControl() {
   const [liveEvents, setLiveEvents] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/policy/logs')
+    fetch(`${API_BASE_URL}/api/policy/logs`)
       .then(res => res.json())
       .then(data => setPolicyLogs(data))
       .catch(() => { });
