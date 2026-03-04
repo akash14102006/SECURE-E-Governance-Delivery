@@ -7,7 +7,7 @@
 
 ---
 
-## System Architecture
+## 🏗️ System Architecture
 
 ```mermaid
 graph TD
@@ -39,62 +39,42 @@ graph TD
 
 ---
 
+## 🔒 Professional Service Architecture & Cyber Security Stack
+
+### **1. CORE PLATFORM SERVICES**
+
+| Layer | Technology | Role |
+| :--- | :--- | :--- |
+| **Frontend UI** | React 18 / Vite 6 / Tailwind | Premium Soft-Panel Dashboard with Real-time WebSockets |
+| **Backend API Gateway** | Node.js (Express) | High-concurrency event handling and API orchestration |
+| **Real-time Stream** | Kafka / Socket.io | Bi-directional lightning-fast data pipeline for security alerts |
+| **Intelligence Engine** | Python (FastAPI) | Machine Learning service for live behavioral anomaly detection |
+
+### **2. CYBER SECURITY INFRASTRUCTURE**
+
+| Service | Category | Implementation Details |
+| :--- | :--- | :--- |
+| **Cloudflare WAF** | Edge Security | L7 Anti-DDoS, Bot Management, and CDN-level protection |
+| **SimpleWebAuthn** | Identity Layer | Passwordless biometric authentication using ECC Private keys |
+| **Suricata IDS** | Network Detection | Deep Packet Inspection (DPI) to block SQLi, XSS, and Scans |
+| **Wazuh SIEM** | Log Analysis | Endpoint monitoring and aggregate threat visibility across servers |
+| **CrowdSec IPS** | Active Defense | Reputation-based blocking of malicious IPs in real-time |
+| **Open Policy Agent (OPA)** | Policy Engine | Centralized Policy-as-Code for citizen data access control |
+
+### **3. AI THREAT MODELS**
+
+*   **Isolation Forest**: Used for identifying outlier behavior in citizen traffic patterns.
+*   **LSTM Neural Networks**: Predicts potential attack sequences based on temporal behavior analysis.
+*   **Behavioral Risk Scoring**: Dynamically calculates a "Citizen Risk Score" for every data access request.
+
+---
+
 ## Key Features
 
-*   **Passwordless Identity**: Biometric authentication via **WebAuthn (FIDO2)**. No passwords stored, only ECC public keys.
-*   **Real-time Threat Monitoring**: Live dashboard for DDoS mitigation, SQL Injection blocks, and Port Scan detection.
-*   **AI Risk Scoring**: Behavioral analysis using **Isolation Forest** and **LSTM** models to identify hostile traffic.
-*   **OPA Policy Engine**: Centralized policy-as-code for citizen data access logs and transparency.
-*   **High-Fidelity Simulation**: Built-in security simulator to demonstrate active defense against SQLi, XSS, and Bruteforce.
-
----
-
-## Tech Stack
-
-**Frontend:**
-- **React 18** + **Vite**
-- **TailwindCSS** (Modern Soft-Panel Styling)
-- **Lucide React** (Iconography)
-- **Motion (Framer)** (Micro-animations)
-- **Socket.io-client** (Real-time updates)
-
-**Backend:**
-- **Node.js** (Express API Gateway)
-- **SimpleWebAuthn** (Hardware-backed security)
-- **Socket.io** (Bidirectional event streaming)
-
-**Security AI Engine:**
-- **Python 3.11**
-- **Scikit-learn** (ML Models)
-- **FastAPI** (Machine Learning Service)
-
----
-
-## Getting Started
-
-### 1. Prerequisites
-- Node.js (v18+)
-- Python (v3.9+)
-
-### 2. Backend Setup
-```bash
-cd backend
-npm install
-node server.js
-```
-
-### 3. AI Engine Setup
-```bash
-cd backend/ai_engine
-pip install -r requirements.txt
-uvicorn main:app --port 8000
-```
-
-### 4. Frontend Setup
-```bash
-npm install
-npm run dev
-```
+*   **Zero-Trust Identity Monitoring**: Biometric authentication via **WebAuthn (FIDO2)**.
+*   **E-Governance Transparency**: Detailed citizen data access logs with automated risk auditing.
+*   **Unified Security Dashboard**: Real-time visibility into global DDoS, WAF, and IDS events.
+*   **Automated Policy Evaluation**: Instant OPA-driven decisions for sensitive record access.
 
 ---
 
