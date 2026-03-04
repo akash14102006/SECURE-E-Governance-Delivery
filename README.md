@@ -1,11 +1,13 @@
-# SECURE SERVICE DELIVERY (SSD) 🛡️
+# SECURE SERVICE DELIVERY (SSD)
 
 ### **End-to-End Secure E-Governance Delivery Platform**
 *A high-performance, Zero-Trust security control center designed for modern GovTech infrastructure.*
 
+![Status](https://img.shields.io/badge/Status-Protected-success?style=flat-square) ![Security](https://img.shields.io/badge/Security-Zero--Trust-blue?style=flat-square) ![Auth](https://img.shields.io/badge/Auth-WebAuthn-blueviolet?style=flat-square)
+
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 graph TD
@@ -37,17 +39,17 @@ graph TD
 
 ---
 
-## ⚡ Key Features
+## Key Features
 
 *   **Passwordless Identity**: Biometric authentication via **WebAuthn (FIDO2)**. No passwords stored, only ECC public keys.
 *   **Real-time Threat Monitoring**: Live dashboard for DDoS mitigation, SQL Injection blocks, and Port Scan detection.
-*   **AI Risk Scoring**: Behavioral analysis using **Isolation Forest** and **LSTM** models to identify "Bot vs Human" traffic.
+*   **AI Risk Scoring**: Behavioral analysis using **Isolation Forest** and **LSTM** models to identify hostile traffic.
 *   **OPA Policy Engine**: Centralized policy-as-code for citizen data access logs and transparency.
 *   **High-Fidelity Simulation**: Built-in security simulator to demonstrate active defense against SQLi, XSS, and Bruteforce.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 - **React 18** + **Vite**
@@ -63,12 +65,12 @@ graph TD
 
 **Security AI Engine:**
 - **Python 3.11**
-- **Scikit-learn** (Isolation Forest)
+- **Scikit-learn** (ML Models)
 - **FastAPI** (Machine Learning Service)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 - Node.js (v18+)
@@ -96,10 +98,11 @@ npm run dev
 
 ---
 
-## 🔒 Security Compliance
-- **Zero Trust**: Every request is verified via OPA and AI Risk Scoring.
-- **Transparency**: Detailed "Citizen Data Access" logs with real-time risk flagging.
-- **Privacy**: End-to-end encryption for all sensitive governance transmissions.
+## Security Compliance
+
+- **Zero Trust Architecture**: Every request is verified via OPA and AI Risk Scoring.
+- **Data Transparency**: Detailed citizen data access logs with real-time risk flagging.
+- **Privacy First**: End-to-end encryption for all sensitive governance transmissions.
 
 ---
-Created with ❤️ by SecureGov Engineering.
+Developed by SecureGov Engineering Team.
