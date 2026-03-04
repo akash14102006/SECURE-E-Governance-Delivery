@@ -1,9 +1,10 @@
+import os
 import time
 import requests
 import random
 
-BACKEND_URL = "http://localhost:5000/api/events"
-AI_ENGINE_URL = "http://localhost:8000/predict"
+BACKEND_URL = os.environ.get("BACKEND_URL", "http://localhost:5000/api/events")
+AI_ENGINE_URL = os.environ.get("AI_ENGINE_URL", "http://localhost:8000/predict")
 
 KNOWN_IPS = {
     "185.220.101.45": {"location": "unknown", "bot_prob": 0.95, "request_frequency": 200},

@@ -4,9 +4,9 @@ const { generateRegistrationOptions, verifyRegistrationResponse, generateAuthent
 const users = new Map();
 const challenges = new Map();
 
-const RP_ID = 'localhost';
-const RP_NAME = 'SecureGov Platform';
-const ORIGIN = 'http://localhost:5173';
+const RP_ID = process.env.RP_ID || 'localhost';
+const RP_NAME = process.env.RP_NAME || 'SECURE SERVICE DELIVERY';
+const ORIGIN = process.env.AUTH_ORIGIN || 'http://localhost:5173';
 
 // --- REGISTRATION ---
 async function getRegistrationOptions(userId, userName) {
