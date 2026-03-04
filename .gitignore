@@ -13,5 +13,5 @@ venv
 public/assets/logo_premium.png
 public/assets/logo_simple.png
 public/assets/logo_ssd.png
-public/assets/logo_ssd_v2.png
+# public/assets/logo_ssd_v2.png (Included for production)
 # Keep only the final intended logo publically if needed, or ignore all temp ones
