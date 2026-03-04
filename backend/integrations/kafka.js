@@ -2,17 +2,23 @@ let kafkaAvailable = false;
 let kafka, producer, consumer;
 let eventBroadcaster = null; // Will be set to socket.io emit function
 
-// Try to load kafkajs — only works if installed
+// Only attempt Kafka connection if explicitly requested via environment variable
+const KAFKA_ENABLED = !!process.env.KAFKA_BROKER;
+
 try {
-    const { Kafka } = require('kafkajs');
-    kafka = new Kafka({
-        clientId: 'govtech-security',
-        brokers: [process.env.KAFKA_BROKER || 'localhost:9092'],
-        retry: { retries: 2 }
-    });
-    producer = kafka.producer();
-    consumer = kafka.consumer({ groupId: 'security-dashboard-group' });
-    kafkaAvailable = true;
+    if (KAFKA_ENABLED) {
+        const { Kafka } = require('kafkajs');
+        kafka = new Kafka({
+            clientId: 'govtech-security',
+            brokers: [process.env.KAFKA_BROKER],
+            retry: { retries: 1 }
+        });
+        producer = kafka.producer();
+        consumer = kafka.consumer({ groupId: 'security-dashboard-group' });
+        kafkaAvailable = true;
+    } else {
+        kafkaAvailable = false;
+    }
 } catch {
     kafkaAvailable = false;
 }
